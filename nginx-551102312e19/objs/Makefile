@@ -681,7 +681,7 @@ install:
 
 	test -d /usr/local/nginx/logs || mkdir -p /usr/local/nginx/logs
 
-	test -d /usr/local/nginx/html || cp -r html /usr/local/nginx
+	#test -d /usr/local/nginx/html || cp -r html /usr/local/nginx
 
 	#test -d /usr/local/nginx/temp || mkdir -p /usr/local/nginx/temp
 
