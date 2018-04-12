@@ -1,0 +1,175 @@
+
+checking for unistd.h
+
+checking for inttypes.h
+
+checking for epoll
+
+checking for sendfile()
+
+checking for sendfile64()
+
+checking for prctl()
+
+checking for PCRE library library
+
+checking for zlib library library
+
+checking for int size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for int printf() format
+
+checking for long size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for long printf() format
+
+checking for long long size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for long long printf() format
+
+checking for void * size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for void * printf() format
+objs/autotest.c: In function 'main':
+objs/autotest.c:3: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for uint64_t
+
+checking for sig_atomic_t
+
+checking for sig_atomic_t size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for socklen_t
+
+checking for in_addr_t
+
+checking for in_port_t
+
+checking for rlim_t
+
+checking for uintptr_t
+
+checking for system endianess
+
+checking for off_t size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for off_t printf() format
+
+checking for time_t size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for time_t printf() format
+cc1: warnings being treated as errors
+objs/autotest.c: In function 'main':
+objs/autotest.c:10: error: format '%d' expects type 'int', but argument 2 has type 'long int'
+
+checking for size_t size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for size_t printf() format
+
+checking for pid_t size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for pid_t printf() format
+
+checking for rlim_t size
+objs/autotest.c: In function 'main':
+objs/autotest.c:11: warning: incompatible implicit declaration of built-in function 'printf'
+
+checking for rlim_t printf() format
+
+checking for pread()
+
+checking for pwrite()
+
+checking for strerror_r()
+cc1: warnings being treated as errors
+objs/autotest.c: In function 'main':
+objs/autotest.c:7: error: assignment makes integer from pointer without a cast
+---------
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <string.h>
+
+int main() {
+    char buf[20]; int n; n = strerror_r(1, buf, 20);
+    return 0;
+}
+
+---------
+gcc -Wall -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -o objs/autotest objs/autotest.c
+---------
+
+checking for gnu_strerror_r()
+
+checking for localtime_r()
+
+checking for posix_memalign()
+
+checking for memalign()
+cc1: warnings being treated as errors
+objs/autotest.c: In function 'main':
+objs/autotest.c:7: error: implicit declaration of function 'memalign'
+objs/autotest.c:7: error: assignment makes pointer from integer without a cast
+---------
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+int main() {
+    void *p; p = memalign(4096, 4096);
+    return 0;
+}
+
+---------
+gcc -Wall -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -o objs/autotest objs/autotest.c
+---------
+
+checking for mmap(MAP_ANON|MAP_SHARED)
+
+checking for mmap("/dev/zero", MAP_SHARED)
+
+checking for System V shared memory
+
+checking for struct sockaddr_in.sin_len
+objs/autotest.c: In function 'main':
+objs/autotest.c:8: error: 'struct sockaddr_in' has no member named 'sin_len'
+---------
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+int main() {
+    struct sockaddr_in sa; sa.sin_len = 5;
+    return 0;
+}
+
+---------
+gcc -Wall -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -o objs/autotest objs/autotest.c
+---------
+
+checking for struct msghdr.msg_control
+
+checking for ioctl(FIONBIO)
+
+checking for struct tm.tm_gmtoff
